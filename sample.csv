@@ -1,0 +1,2 @@
+name,description,max_instances,mentors,tags,is_beginner,categories,time_to_complete_in_days,private_metadata
+"Test Task","Long Description",3,"mentor1@example.org,mentor2@example.org","a,b",yes,"1,2",5,private
