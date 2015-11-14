@@ -23,7 +23,7 @@ import client as gciclient
 argparser = argparse.ArgumentParser(description='GCI CSV Task Uploader.')
 argparser.add_argument('--apikey', type=str, nargs='?', required=True,
                        help='api key')
-argparser.add_argument('--url', type=str, nargs='?', required=True,
+argparser.add_argument('--url', type=str, nargs='?',
                        default='https://codein.withgoogle.com',
                        help='server url')
 argparser.add_argument('--debug', action='store_true',
