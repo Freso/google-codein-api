@@ -64,9 +64,10 @@ def upload(client, filename):
     for task in taskreader:
       t = task
       t['status'] = 2 if FLAGS.publish else 1
-      t['mentors'] = task['mentors'].split(',')
-      t['categories'] = task['categories'].split(',')
-      t['tags'] = task['tags'].split(',')
+      t['mentors'] = task['mentors'].split(',') if len(task['mentors']) else []
+      t['categories'] = (task['categories'].split(',')
+                         if len(task['categories']) else [])
+      t['tags'] = task['tags'].split(',') if len(task['tags']) else []
       t['is_beginner'] = (
           True if task['is_beginner'].lower() in ['yes', 'true', '1']
           else False)
