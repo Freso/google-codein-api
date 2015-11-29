@@ -59,7 +59,7 @@ def upload(client, filename):
     none
   """
   with open(filename, 'rb') as csvfile:
-    taskreader = csv.DictReader(csvfile)
+    taskreader = csv.DictReader(csvfile, skipinitialspace=True)
 
     for task in taskreader:
       t = task
