@@ -138,7 +138,7 @@ class GCIAPIClient(object):
       task_id: An integer id for the task.
 
     Returns:
-      A JSON encoded response.
+      A JSON encoded response, if there is content in the response.
 
     Raises:
       HTTPError: a 4XX client error or 5XX server error response was returned.
@@ -148,4 +148,7 @@ class GCIAPIClient(object):
             self._Url('tasks/%d' % task_id),
             headers=self.headers))
     r.raise_for_status()
-    return r.json()
+    # DELETE returns nothing on success, don't try and parse it.
+    if len(r.content) > 0:
+      return r.json()
+    return
